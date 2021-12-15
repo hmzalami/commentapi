@@ -216,11 +216,12 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($commentId)
     {
-        //
+        $comments = Comment::findOrFail($commentId);
+        $comments->delete();
     }
 }
